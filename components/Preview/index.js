@@ -20,9 +20,16 @@ const Preview = ({ photo, handlePreview }) => {
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Your Shaking Photo!</Text>
             <Image source={{uri: photo}} style={{width: 300, height: 400, zIndex: 2}}/>
-            <TouchableOpacity onPress={handlePreview}>
-              <Text>Repeat</Text>
-            </TouchableOpacity>
+
+            <View style={styles.btnContainer}>
+              <TouchableOpacity onPress={handlePreview} style={styles.btn}>
+                <Text style={{color: '#666666'}}>Discard</Text>
+              </TouchableOpacity>
+                <View style={styles.separator}/>
+              <TouchableOpacity onPress={handlePreview} style={styles.btn}>
+                <Text style={{color: '#2770FE'}}>Keep</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -45,8 +52,8 @@ const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
+    borderRadius: 8,
+    paddingTop: 24,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -59,7 +66,27 @@ const styles = StyleSheet.create({
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: "center",
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  btnContainer:{
+    width: '100%',
+    flexDirection: 'row',
+    marginTop: 24
+  },
+  separator: {
+    backgroundColor: '#C4C4C4',
+    width: 1,
+    height: '100%',
+  },
+  btn: {
+    width: '50%',
+    alignItems: 'center',
+    paddingVertical: 24,
+    borderTopWidth: 1,
+    borderColor: '#C4C4C4',
+    backgroundColor: 'transparent',
   }
 });
 
