@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import { Alert, Modal, StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 
-const Preview = ({ photo, handlePreview }) => {
+const Preview = ({ photo, handlePreview, handleSave }) => {
   const [modalVisible, setModalVisible] = useState(true);
 
   return (
@@ -26,7 +26,7 @@ const Preview = ({ photo, handlePreview }) => {
                 <Text style={{color: '#666666'}}>Discard</Text>
               </TouchableOpacity>
                 <View style={styles.separator}/>
-              <TouchableOpacity onPress={handlePreview} style={styles.btn}>
+              <TouchableOpacity onPress={handleSave} style={styles.btn}>
                 <Text style={{color: '#2770FE'}}>Keep</Text>
               </TouchableOpacity>
             </View>
@@ -39,7 +39,8 @@ const Preview = ({ photo, handlePreview }) => {
 
 Preview.propTypes = {
   photo: PropTypes.string,
-  handlePreview: PropTypes.func
+  handlePreview: PropTypes.func,
+  handleSave: PropTypes.func
 };
 
 const styles = StyleSheet.create({
